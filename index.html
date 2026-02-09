@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Management Software & Member App | MyGymStory</title>
+    <meta name="description"
+        content="Scale your gym business with MyGymStory. The all-in-one gym management software with a gamified member app to boost retention. Book a demo today.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="gym.css">
+    <style>
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+        }
+
+        @media (min-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="logo">MyGymStory<span class="dot">.</span></div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#leads" class="cta-button sm primary">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content fade-in">
+                <!-- Removed badge for cleaner look -->
+                <h1>Transform Your Gym into a <span class="text-gradient">Legend</span>.</h1>
+                <p>Move beyond spreadsheets. Engage your members with a gamified experience and manage your business
+                    seamlessly from your pocket.</p>
+                <div class="hero-actions">
+                    <a href="#leads" class="cta-button primary">Book a Demo</a>
+                    <a href="#features" class="btn-outline">See how it works</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-num">500+</span>
+                        <span class="stat-label">Gyms Trust Us</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">4.9/5</span>
+                        <span class="stat-label">App Store Rating</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image fade-in delay-200">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop"
+                        alt="Modern Gym Facility" class="hero-img">
+                    <div class="floating-card">
+                        <i data-lucide="trending-up" style="color: #00C853;"></i>
+                        <div>
+                            <strong style="display:block; font-size: 0.9rem;">Revenue Up 30%</strong>
+                            <span style="font-size: 0.8rem; color: #666;">Last Month</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Comparison -->
+    <section class="section-padding bg-offset">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-subtitle">Evolution</span>
+                <h2>Stop Drowning in Admin</h2>
+                <p>Modernize your operations with a system built for growth.</p>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="card old-way fade-in">
+                    <h3>The Spreadsheet Era</h3>
+                    <ul class="feature-list">
+                        <li><i data-lucide="x-circle" class="icon-bad"></i> Clunky & Manual Processes</li>
+                        <li><i data-lucide="clock" class="icon-bad"></i> Wasted Hours on Admin</li>
+                        <li><i data-lucide="file-warning" class="icon-bad"></i> Lost Member Data</li>
+                        <li><i data-lucide="users" class="icon-bad"></i> Low Engagement</li>
+                    </ul>
+                </div>
+                <div class="card new-way fade-in delay-100">
+                    <h3>The MyGymStory Era</h3>
+                    <ul class="feature-list">
+                        <li><i data-lucide="check-circle-2" class="icon-good"></i> Automated Subscriptions</li>
+                        <li><i data-lucide="user-check" class="icon-good"></i> Seamless Staff Mgmt</li>
+                        <li><i data-lucide="bar-chart-2" class="icon-good"></i> Real-time Analytics</li>
+                        <li><i data-lucide="smartphone" class="icon-good"></i> Gamified Member App</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Features (Owners First) -->
+    <section id="features" class="features-split section-padding">
+        <div class="container">
+            <div class="split-layout">
+                <div class="split-content">
+                    <span class="section-subtitle">For Owners</span>
+                    <h2>Business in a Jiff.</h2>
+                    <p>Manage your entire empire from your pocket. Financials, staff, and operations are just a tap
+                        away.</p>
+                    <ul class="feature-checklist">
+                        <li><i data-lucide="pie-chart"></i> <strong>Instant Financials</strong> Track revenue daily.
+                        </li>
+                        <li><i data-lucide="calendar"></i> <strong>Smart Scheduling</strong> Effortless booking.</li>
+                        <li><i data-lucide="bell"></i> <strong>Auto-Notifications</strong> Automated reminders.</li>
+                    </ul>
+                </div>
+                <div class="split-image">
+                    <img src="assets/admin-dashboard.png" alt="MyGymStory Admin Dashboard"
+                        class="feature-img shadow-lg rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Member Features (Members Second) -->
+    <section class="features-split section-padding bg-offset">
+        <div class="container">
+            <div class="split-layout reverse">
+                <div class="split-content ">
+                    <span class="section-subtitle">For Members</span>
+                    <h2>Addictive Progress.</h2>
+                    <p>Gamification isn't just a buzzword. It's how you keep members coming back. XP gains, leveling up,
+                        and achievements make fitness fun.</p>
+                    <ul class="feature-checklist">
+                        <li><i data-lucide="trophy"></i> <strong>Leaderboards</strong> for friendly competition.</li>
+                        <li><i data-lucide="history"></i> <strong>PR Tracking</strong> visualized beautifully.</li>
+                        <li><i data-lucide="users"></i> <strong>Community Feed</strong> to build culture.</li>
+                    </ul>
+                </div>
+                <div class="split-image">
+                    <img src="assets/mobile-app.png" alt="MyGymStory Mobile App Interface"
+                        class="feature-img shadow-lg rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section-padding">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-subtitle">Wall of Love</span>
+                <h2>Trusted by Owners</h2>
+            </div>
+            <div class="grid-3">
+                <div class="testimonial-card fade-in">
+                    <div class="stars">★★★★★</div>
+                    <p>"I stopped using 5 different tools. MyGymStory does it all. The members love the app, and I love
+                        the automation."</p>
+                    <div class="author">
+                        <strong>Raj Patel</strong>
+                        <span>Owner, Iron Fortress</span>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in delay-100">
+                    <div class="stars">★★★★★</div>
+                    <p>"The gamification is a game changer. Retention is up 20% because members want to hit the next
+                        level."</p>
+                    <div class="author">
+                        <strong>Sarah Jenkins</strong>
+                        <span>FitLife Studio</span>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in delay-200">
+                    <div class="stars">★★★★★</div>
+                    <p>"Finally, software that looks good and works on mobile. I run my gym from my car half the time."
+                    </p>
+                    <div class="author">
+                        <strong>Mike Ross</strong>
+                        <span>Ross Athletics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="section-padding bg-offset">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-subtitle">Pricing</span>
+                <h2>Simple & Transparent</h2>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <h3>Starter</h3>
+                    <div class="price">₹3,000<span style="font-size:1rem;color:#666;font-weight:400">/mo</span></div>
+                    <p>Up to 150 active members</p>
+                    <ul class="pricing-features">
+                        <li><i data-lucide="check"></i> Core Management</li>
+                        <li><i data-lucide="check"></i> Member App</li>
+                        <li><i data-lucide="check"></i> Basic Reports</li>
+                    </ul>
+                    <a href="#leads" class="btn-outline" style="width:100%">Select</a>
+                </div>
+                <div class="pricing-card highlight fade-in">
+                    <div
+                        style="background:#111; color:#fff; display:inline-block; padding:4px 12px; border-radius:100px; font-size:0.75rem; font-weight:700; margin-bottom:1rem;">
+                        MOST POPULAR</div>
+                    <h3>Pro</h3>
+                    <div class="price">₹5,000<span style="font-size:1rem;color:#666;font-weight:400">/mo</span></div>
+                    <p>Up to 300 active members</p>
+                    <ul class="pricing-features">
+                        <li><i data-lucide="check"></i> <strong>Everything in Starter</strong></li>
+                        <li><i data-lucide="check"></i> Advanced Analytics</li>
+                        <li><i data-lucide="check"></i> Marketing Suite</li>
+                    </ul>
+                    <a href="#leads" class="cta-button primary full-width">Select Pro</a>
+                </div>
+                <div class="pricing-card fade-in">
+                    <h3>Elite</h3>
+                    <div class="price">Custom</div>
+                    <p>More than 300 members</p>
+                    <ul class="pricing-features">
+                        <li><i data-lucide="check"></i> Multi-location</li>
+                        <li><i data-lucide="check"></i> Custom Branding</li>
+                        <li><i data-lucide="check"></i> Dedicated Manager</li>
+                    </ul>
+                    <a href="#leads" class="btn-outline" style="width:100%">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Gen Form -->
+    <section id="leads" class="section-padding">
+        <div class="container max-w-sm">
+            <div class="form-wrapper fade-in">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <h2>Scale Your Empire</h2>
+                    <p>Your story starts here.</p>
+                </div>
+                <form id="leadForm">
+                    <div class="input-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                    </div>
+                    <div class="input-group">
+                        <label for="gymName">Gym Name</label>
+                        <input type="text" id="gymName" name="gymName" required placeholder="Iron Paradise">
+                    </div>
+                    <div class="input-group">
+                        <label for="members">Current Member Count</label>
+                        <select id="members" name="members" required>
+                            <option value="">Select Count</option>
+                            <option value="0-150">0 - 150</option>
+                            <option value="150-300">150 - 300</option>
+                            <option value="300+">300+</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+91 98765 43210">
+                    </div>
+                    <button type="submit" class="cta-button primary full-width">Book Demo</button>
+                    <p style="text-align:center; font-size:0.85rem; margin-top:1rem; opacity:0.7;">We'll be in touch
+                        within 24 hours.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="brand">
+                    <h3>MyGymStory<span class="dot">.</span></h3>
+                    <p>Nagpur, Maharashtra</p>
+                    <div style="margin-top:1rem;">
+                        <a href="mailto:hello@makingitlegendary.com"
+                            style="display:block; margin-bottom:0.5rem;">hello@makingitlegendary.com</a>
+                        <a href="tel:+919309172402">+91 93091 72402</a>
+                    </div>
+                </div>
+                <div class="legal-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+            </div>
+            <div style="text-align:center; font-size:0.85rem; margin-top:2rem;">
+                © 2026 MyGymStory. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

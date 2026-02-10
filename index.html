@@ -8,6 +8,49 @@
     <meta name="description"
         content="Scale your gym business with MyGymStory. The all-in-one gym management software with a gamified member app to boost retention. Book a demo today.">
 
+    <!-- Enhanced SEO -->
+    <link rel="canonical" href="https://mygymstory.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mygymstory.com/">
+    <meta property="og:title" content="MyGymStory - The #1 Gamified Gym Management Software">
+    <meta property="og:description"
+        content="Boost member retention by 30% with our gamified member app and seamless gym management software. Demo it live now.">
+    <!-- Placeholder image -->
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mygymstory.com/">
+    <meta property="twitter:title" content="MyGymStory - The #1 Gamified Gym Management Software">
+    <meta property="twitter:description"
+        content="Boost member retention by 30% with our gamified member app and seamless gym management software. Demo it live now.">
+    <meta property="twitter:image"
+        content="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "MyGymStory",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web, iOS, Android",
+            "offers": {
+                "@type": "Offer",
+                "price": "3000",
+                "priceCurrency": "INR"
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "ratingCount": "500"
+            }
+        }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
@@ -96,7 +139,7 @@
 
             <div class="comparison-grid">
                 <div class="card old-way fade-in">
-                    <h3>The Spreadsheet Era</h3>
+                    <h3><i data-lucide="alert-triangle" style="color: #ef4444; width: 24px;"></i> The Old Way</h3>
                     <ul class="feature-list">
                         <li><i data-lucide="x-circle" class="icon-bad"></i> Clunky & Manual Processes</li>
                         <li><i data-lucide="clock" class="icon-bad"></i> Wasted Hours on Admin</li>
@@ -105,7 +148,8 @@
                     </ul>
                 </div>
                 <div class="card new-way fade-in delay-100">
-                    <h3>The MyGymStory Era</h3>
+                    <h3><i data-lucide="zap" style="color: var(--accent-primary); width: 24px;"></i> The Tech-First Way
+                    </h3>
                     <ul class="feature-list">
                         <li><i data-lucide="check-circle-2" class="icon-good"></i> Automated Subscriptions</li>
                         <li><i data-lucide="user-check" class="icon-good"></i> Seamless Staff Mgmt</li>
@@ -134,31 +178,384 @@
                     </ul>
                 </div>
                 <div class="split-image">
-                    <img src="assets/admin-dashboard.png" alt="MyGymStory Admin Dashboard"
-                        class="feature-img shadow-lg rounded-lg">
+                    <!-- Interactive Dashboard Widget -->
+                    <div class="dashboard-widget fade-in delay-200">
+                        <div class="dash-header">
+                            <div class="dash-title">
+                                <span class="live-indicator"></span> Live Business Pulse
+                            </div>
+                            <div class="user-pill"><i data-lucide="user"></i> Owner Mode</div>
+                        </div>
+
+                        <div class="dash-tabs">
+                            <button class="dash-tab active" data-tab="overview">Overview</button>
+                            <button class="dash-tab" data-tab="members">Members</button>
+                            <button class="dash-tab" data-tab="reports">Reports</button>
+                        </div>
+
+                        <!-- Panel: Overview -->
+                        <div id="dash-overview" class="dash-content active">
+                            <div class="metric-row">
+                                <div class="metric-card">
+                                    <div class="metric-label">Today's Revenue</div>
+                                    <div class="metric-value">₹12,450</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-label">Active Members</div>
+                                    <div class="metric-value">248</div>
+                                </div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-label">Weekly Growth</div>
+                                <div class="chart-placeholder">
+                                    <div class="chart-bar" style="height: 40%"></div>
+                                    <div class="chart-bar" style="height: 65%"></div>
+                                    <div class="chart-bar" style="height: 50%"></div>
+                                    <div class="chart-bar active" style="height: 85%"></div>
+                                    <div class="chart-bar" style="height: 60%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Panel: Members -->
+                        <div id="dash-members" class="dash-content">
+                            <div class="member-list">
+                                <div class="member-list-item">
+                                    <div class="member-info">
+                                        <div class="avatar">AS</div>
+                                        <div class="m-details">
+                                            <strong>Amit S.</strong>
+                                            <span>Expiry: 2 days</span>
+                                        </div>
+                                    </div>
+                                    <span class="status-badge"
+                                        style="background:#FEF3C7; color: #D97706;">Expiring</span>
+                                </div>
+                                <div class="member-list-item">
+                                    <div class="member-info">
+                                        <div class="avatar">RJ</div>
+                                        <div class="m-details">
+                                            <strong>Riya J.</strong>
+                                            <span>Joined today</span>
+                                        </div>
+                                    </div>
+                                    <span class="status-badge">New</span>
+                                </div>
+                                <div class="member-list-item">
+                                    <div class="member-info">
+                                        <div class="avatar">MK</div>
+                                        <div class="m-details">
+                                            <strong>Mike K.</strong>
+                                            <span>Active</span>
+                                        </div>
+                                    </div>
+                                    <span class="status-badge">Active</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Panel: Reports -->
+                        <div id="dash-reports" class="dash-content">
+                            <div style="text-align: center; padding: 2rem 0; color: #94a3b8;">
+                                <i data-lucide="download" style="margin-bottom: 1rem; opacity: 0.5;"></i>
+                                <p>Automated Monthly Report generated successfully.</p>
+                                <button class="app-btn-sm" style="margin-top: 1rem;">Download PDF</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Member Features (Members Second) -->
-    <section class="features-split section-padding bg-offset">
+    <!-- Live App Experience (Interactive) -->
+    <section class="section-padding bg-dark text-white overflow-hidden" id="app-demo">
         <div class="container">
-            <div class="split-layout reverse">
-                <div class="split-content ">
-                    <span class="section-subtitle">For Members</span>
-                    <h2>Addictive Progress.</h2>
-                    <p>Gamification isn't just a buzzword. It's how you keep members coming back. XP gains, leveling up,
-                        and achievements make fitness fun.</p>
-                    <ul class="feature-checklist">
-                        <li><i data-lucide="trophy"></i> <strong>Leaderboards</strong> for friendly competition.</li>
-                        <li><i data-lucide="history"></i> <strong>PR Tracking</strong> visualized beautifully.</li>
-                        <li><i data-lucide="users"></i> <strong>Community Feed</strong> to build culture.</li>
-                    </ul>
+            <div class="section-header fade-in">
+                <span class="section-subtitle">For Members</span>
+                <h2 class="text-white">An App They Won't Delete</h2>
+                <p class="text-gray-400">Experience the member app in real-time. Try the interactive demo below.</p>
+            </div>
+
+            <div class="app-demo-grid">
+                <!-- Controls (Left) -->
+                <div class="demo-controls fade-in">
+                    <div class="control-group">
+                        <h3>1. Personalize</h3>
+                        <p>See your gym's name on the member's app instantly.</p>
+                        <input type="text" id="gymNameInput" class="tech-input" placeholder="Enter your Gym Name"
+                            value="Fit Life Express">
+                    </div>
+
+                    <div class="control-group">
+                        <h3>2. Engage Members</h3>
+                        <p>Keep them motivated with instant updates.</p>
+                        <button class="btn-outline light full-width" id="btn-trigger-notification">
+                            <i data-lucide="bell"></i> Send "Miss You" Notification
+                        </button>
+                    </div>
+
+                    <div class="control-group">
+                        <h3>3. Explore Features</h3>
+                        <p>Switch between key screens to see how members track progress.</p>
+                        <div class="screen-toggles" style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                            <button class="toggle-btn active" data-screen="home">
+                                <i data-lucide="home"></i> Home
+                            </button>
+                            <button class="toggle-btn" data-screen="feed">
+                                <i data-lucide="users"></i> Feed
+                            </button>
+                            <button class="toggle-btn" data-screen="workout">
+                                <i data-lucide="dumbbell"></i> Workout
+                            </button>
+                            <button class="toggle-btn" data-screen="stats">
+                                <i data-lucide="bar-chart-2"></i> Stats
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="split-image">
-                    <img src="assets/mobile-app.png" alt="MyGymStory Mobile App Interface"
-                        class="feature-img shadow-lg rounded-lg">
+
+                <!-- Phone Mockup (Right) -->
+                <div class="phone-wrapper fade-in delay-200">
+                    <div class="phone-frame">
+                        <div class="notch"></div>
+                        <div class="side-btn volume-up"></div>
+                        <div class="side-btn volume-down"></div>
+                        <div class="side-btn power"></div>
+
+                        <!-- Screen Content -->
+                        <div class="app-screen" id="app-screen">
+                            <!-- Dynamic App Header -->
+                            <div class="app-header">
+                                <div class="user-info">
+                                    <span class="greeting">Hello, Raj</span>
+                                    <span class="gym-name">Fit Life Express</span>
+                                </div>
+                                <div class="header-actions">
+                                    <div class="streak-badge"><i data-lucide="flame"></i> 2</div>
+                                </div>
+                            </div>
+
+                            <!-- View: HOME -->
+                            <div class="app-view active" id="view-home">
+                                <!-- Check-in Card -->
+                                <div class="app-card check-in-card">
+                                    <div class="location-icon">
+                                        <i data-lucide="map-pin"></i>
+                                    </div>
+                                    <div class="check-in-text">
+                                        <strong>You're checked in!</strong>
+                                        <span>Training for 0 min</span>
+                                    </div>
+                                    <button class="app-btn-sm">Check Out</button>
+                                </div>
+
+                                <!-- Quick Actions -->
+                                <div class="quick-actions-grid">
+                                    <div class="action-card">
+                                        <i data-lucide="zap"></i>
+                                        <span>Start Workout</span>
+                                    </div>
+                                    <div class="action-card">
+                                        <i data-lucide="clipboard"></i>
+                                        <span>Templates</span>
+                                    </div>
+                                </div>
+
+                                <!-- Weekly Goal -->
+                                <div class="app-card goal-card">
+                                    <div class="card-header">
+                                        <i data-lucide="trophy" class="gold"></i>
+                                        <span>Weekly Goal</span>
+                                        <span class="sub-text">2/5 Days</span>
+                                    </div>
+                                    <div class="week-circles">
+                                        <div class="day-circle done">M</div>
+                                        <div class="day-circle active-day">T</div>
+                                        <div class="day-circle">W</div>
+                                        <div class="day-circle">T</div>
+                                        <div class="day-circle">F</div>
+                                        <div class="day-circle">S</div>
+                                        <div class="day-circle">S</div>
+                                    </div>
+                                    <div class="card-footer">Keep pushing!</div>
+                                </div>
+
+                                <!-- XP Progress -->
+                                <div class="app-card xp-card">
+                                    <div class="xp-header">
+                                        <div class="level-badge"><i data-lucide="star"></i> 5</div>
+                                        <div class="xp-text">
+                                            <strong>Initiate</strong>
+                                            <span>You've shown up. That puts you ahead of most.</span>
+                                        </div>
+                                    </div>
+                                    <div class="xp-bar-bg">
+                                        <div class="xp-bar-fill" style="width: 35%;"></div>
+                                    </div>
+                                    <div class="xp-stats">
+                                        <span>35 / 100 XP</span>
+                                        <span>65 to level up</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- View: FEED -->
+                            <div class="app-view" id="view-feed">
+                                <div class="section-title">Community Feed</div>
+
+                                <div class="feed-card">
+                                    <div class="feed-header">
+                                        <div class="feed-user">
+                                            <div class="feed-avatar">RS</div>
+                                            <div class="feed-meta">
+                                                <strong>Raj Sharma</strong>
+                                                <span>2 hours ago</span>
+                                            </div>
+                                        </div>
+                                        <div class="like-badge">
+                                            <i data-lucide="thumbs-up" style="width:14px;"></i> 12
+                                        </div>
+                                    </div>
+                                    <div class="feed-title">Leg Day Destruction 🦵</div>
+                                    <div class="feed-details">Squats, Leg Press, Extensions • 45 min</div>
+                                    <div class="pr-alert">
+                                        <i data-lucide="trophy" style="width:14px;"></i> New PR: Squat 120kg
+                                    </div>
+                                </div>
+
+                                <div class="feed-card">
+                                    <div class="feed-header">
+                                        <div class="feed-user">
+                                            <div class="feed-avatar">AP</div>
+                                            <div class="feed-meta">
+                                                <strong>Anjali P.</strong>
+                                                <span>5 hours ago</span>
+                                            </div>
+                                        </div>
+                                        <div class="like-badge active">
+                                            <i data-lucide="heart" style="width:14px; fill:currentColor;"></i> 24
+                                        </div>
+                                    </div>
+                                    <div class="feed-title">Morning Cardio 🏃‍♀️</div>
+                                    <div class="feed-details">Treadmill • 5km • 30 min</div>
+                                </div>
+                            </div>
+
+                            <!-- View: WORKOUT -->
+                            <div class="app-view" id="view-workout">
+                                <div class="section-title">Today's Plan</div>
+                                <div class="workout-list">
+                                    <div class="exercise-item">
+                                        <div class="ex-info">
+                                            <strong>Barbell Squat</strong>
+                                            <span>4 Sets x 8-10 Reps</span>
+                                        </div>
+                                        <div class="ex-action"><i data-lucide="more-horizontal"></i></div>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <div class="ex-info">
+                                            <strong>Bench Press</strong>
+                                            <span>3 Sets x 8-12 Reps</span>
+                                        </div>
+                                        <div class="ex-action"><i data-lucide="more-horizontal"></i></div>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <div class="ex-info">
+                                            <strong>Lat Pulldown</strong>
+                                            <span>3 Sets x 10-12 Reps</span>
+                                        </div>
+                                        <div class="ex-action"><i data-lucide="more-horizontal"></i></div>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <div class="ex-info">
+                                            <strong>Face Pulls</strong>
+                                            <span>3 Sets x 15-20 Reps</span>
+                                        </div>
+                                        <div class="ex-action"><i data-lucide="more-horizontal"></i></div>
+                                    </div>
+                                </div>
+                                <button class="start-btn">
+                                    <i data-lucide="play" style="fill:currentColor; margin-left:4px;"></i>
+                                </button>
+                            </div>
+
+                            <!-- View: STATS -->
+                            <div class="app-view" id="view-stats">
+                                <div class="section-title">Your Progress</div>
+                                <!-- Stats Grid -->
+                                <div class="stats-grid-row">
+                                    <div class="stat-box">
+                                        <i data-lucide="flame"></i>
+                                        <strong>2</strong>
+                                        <span>Day Streak</span>
+                                    </div>
+                                    <div class="stat-box">
+                                        <i data-lucide="dumbbell"></i>
+                                        <strong>4</strong>
+                                        <span>Workouts</span>
+                                    </div>
+                                    <div class="stat-box">
+                                        <i data-lucide="scale"></i>
+                                        <strong>65</strong>
+                                        <span>Kg Weight</span>
+                                    </div>
+                                </div>
+
+                                <!-- Calendar -->
+                                <div class="app-card calendar-card">
+                                    <div class="cal-header">
+                                        <i data-lucide="chevron-left"></i>
+                                        <span>February 2026</span>
+                                        <i data-lucide="chevron-right"></i>
+                                    </div>
+                                    <div class="cal-grid">
+                                        <!-- Mock Calendar Days -->
+                                        <span>1</span><span class="active">2</span><span
+                                            class="active">3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                                        <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
+                                        <span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
+                                    </div>
+                                    <div class="cal-legend">
+                                        <span class="dot green"></span> Worked out
+                                    </div>
+                                </div>
+
+                                <!-- Graph Mockup -->
+                                <div class="app-card graph-card">
+                                    <div class="graph-header">
+                                        <i data-lucide="trending-up"></i>
+                                        <span>Exercise Progress</span>
+                                    </div>
+                                    <div class="mock-graph">
+                                        <div class="bar" style="height: 40%"></div>
+                                        <div class="bar" style="height: 60%"></div>
+                                        <div class="bar" style="height: 50%"></div>
+                                        <div class="bar" style="height: 80%"></div>
+                                        <div class="bar active" style="height: 95%"></div>
+                                    </div>
+                                    <div class="graph-label">Barbell Overhead Press</div>
+                                </div>
+                            </div>
+
+                            <!-- Notification Overlay -->
+                            <div class="notification-toast" id="mock-notification">
+                                <div class="notif-icon"><i data-lucide="zap"></i></div>
+                                <div class="notif-content">
+                                    <strong>We miss you, Raj! 🥺</strong>
+                                    <p>Come in today and get 2x XP points!</p>
+                                </div>
+                            </div>
+
+                            <!-- App Navigation -->
+                            <div class="app-nav">
+                                <div class="nav-item active"><i data-lucide="home"></i><span>Home</span></div>
+                                <div class="nav-item"><i data-lucide="dumbbell"></i><span>Workout</span></div>
+                                <div class="nav-item"><i data-lucide="bar-chart-2"></i><span>Stats</span></div>
+                                <div class="nav-item"><i data-lucide="users"></i><span>Feed</span></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

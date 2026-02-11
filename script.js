@@ -19,31 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
     animatedElements.forEach(el => observer.observe(el));
 
     // 2. Form Handling
-    const form = document.getElementById('leadForm');
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            // In a real scenario, we would send data to a backend here.
-            // For now, we simulate success and redirect.
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerText;
-
-            submitBtn.innerText = 'Sending...';
-            submitBtn.disabled = true;
-
-            // Collect form data for console log (Debugging/Verification)
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
-            console.log('Form Submission:', data);
-
-            // Simulate network request delay
-            setTimeout(() => {
-                // Redirect to Thank You page
-                window.location.href = 'thankyou.html';
-            }, 1500);
-        });
-    }
+    // Form submission is now handled by Formspree directly via HTML attributes.
+    // const form = document.getElementById('leadForm');
+    // if (form) {
+    //     form.addEventListener('submit', (e) => {
+    //         // Native submission to Formspree
+    //     });
+    // }
 
     // 3. Smooth Scrolling for Anchor Links (Optional polish)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

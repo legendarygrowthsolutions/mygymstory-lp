@@ -5,25 +5,529 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>You're In! | MyGymStory</title>
+    <meta name="description" content="Thank you for booking a demo with MyGymStory. We'll be in touch within 24 hours.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="gym.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .thankyou-page {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            /* Increased top padding for desktop */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Radial glow behind the card */
+        .thankyou-page::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 230, 118, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .thankyou-content {
+            text-align: center;
+            max-width: 560px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Animated checkmark circle */
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+
+        .success-icon svg.circle-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .success-icon .ring {
+            fill: none;
+            stroke: var(--accent-primary);
+            stroke-width: 3;
+            stroke-dasharray: 283;
+            stroke-dashoffset: 283;
+            animation: drawRing 0.8s ease-out 0.2s forwards;
+            transform-origin: center;
+        }
+
+        .success-icon .ring-bg {
+            fill: none;
+            stroke: #f3f4f6;
+            stroke-width: 3;
+        }
+
+        .success-icon .checkmark-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            color: var(--accent-primary);
+            animation: popIn 0.4s ease-out 0.8s forwards;
+        }
+
+        @keyframes drawRing {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+            }
+
+            70% {
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .success-badge {
+            display: inline-block;
+            background: rgba(0, 230, 118, 0.08);
+            color: var(--accent-hover);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 230, 118, 0.2);
+        }
+
+        .thankyou-content h1 {
+            font-size: 2.75rem;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+
+        .thankyou-content>p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin: 0 auto 2.5rem;
+            max-width: 420px;
+            line-height: 1.7;
+        }
+
+        /* Next Steps Timeline */
+        .next-steps {
+            text-align: left;
+            background: #fff;
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid #f3f4f6;
+        }
+
+        .next-steps h3 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 16px;
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        .step-item:last-child {
+            padding-bottom: 0;
+        }
+
+        /* Timeline connector */
+        .step-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 34px;
+            width: 2px;
+            height: calc(100% - 34px);
+            background: #f3f4f6;
+        }
+
+        .step-marker {
+            width: 32px;
+            height: 32px;
+            background: var(--bg-offset);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border: 2px solid #f3f4f6;
+            z-index: 1;
+        }
+
+        .step-marker svg {
+            width: 16px;
+            height: 16px;
+            color: var(--text-secondary);
+        }
+
+        .step-item.active .step-marker {
+            background: rgba(0, 230, 118, 0.1);
+            border-color: var(--accent-primary);
+        }
+
+        .step-item.active .step-marker svg {
+            color: var(--accent-primary);
+        }
+
+        .step-text strong {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .step-text span {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .thankyou-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Confetti Animation */
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: -20px;
+            opacity: 0;
+            animation: confettiFall 3s ease-in forwards;
+        }
+
+        .confetti-piece:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+            background: #00E676;
+            border-radius: 50%;
+        }
+
+        .confetti-piece:nth-child(2) {
+            left: 25%;
+            animation-delay: 0.2s;
+            background: #111827;
+            width: 8px;
+            height: 12px;
+        }
+
+        .confetti-piece:nth-child(3) {
+            left: 40%;
+            animation-delay: 0.4s;
+            background: #00C853;
+            border-radius: 2px;
+            transform: rotate(45deg);
+        }
+
+        .confetti-piece:nth-child(4) {
+            left: 55%;
+            animation-delay: 0.1s;
+            background: #e5e7eb;
+            border-radius: 50%;
+        }
+
+        .confetti-piece:nth-child(5) {
+            left: 70%;
+            animation-delay: 0.3s;
+            background: #00E676;
+            width: 6px;
+            height: 14px;
+        }
+
+        .confetti-piece:nth-child(6) {
+            left: 85%;
+            animation-delay: 0.5s;
+            background: #111827;
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+        }
+
+        .confetti-piece:nth-child(7) {
+            left: 15%;
+            animation-delay: 0.6s;
+            background: #00C853;
+            border-radius: 2px;
+        }
+
+        .confetti-piece:nth-child(8) {
+            left: 60%;
+            animation-delay: 0.15s;
+            background: #e5e7eb;
+            width: 12px;
+            height: 6px;
+        }
+
+        .confetti-piece:nth-child(9) {
+            left: 35%;
+            animation-delay: 0.45s;
+            background: #00E676;
+            border-radius: 50%;
+            width: 6px;
+            height: 6px;
+        }
+
+        .confetti-piece:nth-child(10) {
+            left: 80%;
+            animation-delay: 0.35s;
+            background: #111827;
+            width: 8px;
+            height: 8px;
+            border-radius: 2px;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                top: -20px;
+                opacity: 1;
+                transform: rotate(0deg) translateX(0);
+            }
+
+            100% {
+                top: 100%;
+                opacity: 0;
+                transform: rotate(720deg) translateX(40px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .thankyou-page {
+                padding: 6rem 1.25rem 2rem;
+                align-items: flex-start;
+            }
+
+            .thankyou-content {
+                max-width: 100%;
+            }
+
+            .thankyou-content h1 {
+                font-size: 1.85rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .thankyou-content>p {
+                font-size: 1rem;
+                margin-bottom: 1.75rem;
+                line-height: 1.6;
+            }
+
+            .success-icon {
+                width: 72px;
+                height: 72px;
+                margin-bottom: 1.5rem;
+            }
+
+            .success-icon .checkmark-icon {
+                width: 28px !important;
+                height: 28px !important;
+            }
+
+            .success-badge {
+                font-size: 0.75rem;
+                padding: 5px 12px;
+                margin-bottom: 1rem;
+            }
+
+            .next-steps {
+                padding: 1.25rem;
+                margin-bottom: 1.75rem;
+                border-radius: 12px;
+            }
+
+            .next-steps h3 {
+                font-size: 0.85rem;
+                margin-bottom: 1rem;
+            }
+
+            .step-item {
+                gap: 12px;
+                padding-bottom: 1.25rem;
+            }
+
+            .step-marker {
+                width: 28px;
+                height: 28px;
+            }
+
+            .step-marker svg {
+                width: 14px;
+                height: 14px;
+            }
+
+            .step-item:not(:last-child)::after {
+                left: 13px;
+                top: 30px;
+                height: calc(100% - 30px);
+            }
+
+            .step-text strong {
+                font-size: 0.9rem;
+            }
+
+            .step-text span {
+                font-size: 0.8rem;
+            }
+
+            .thankyou-actions {
+                flex-direction: column;
+            }
+
+            .thankyou-actions .cta-button,
+            .thankyou-actions .btn-outline {
+                width: 100%;
+            }
+
+            .thankyou-page::before {
+                width: 300px;
+                height: 300px;
+            }
+        }
+    </style>
 </head>
 
-<body class="thank-you-page">
-    <div class="glass-card success-card fade-in visible">
-        <!-- SVG Icon -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#00E676"
-            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 2rem;">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-        </svg>
-        <h1>Your story starts here.</h1>
-        <p style="font-size: 1.25rem; margin-bottom: 3rem; color: #555;">We'll be in touch within 24 hours to help you
-            level up your gym.</p>
-        <a href="index.html" class="cta-button primary">Back to Home</a>
-    </div>
+<body>
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <a href="index.html" class="logo">MyGymStory<span class="dot">.</span></a>
+        <div class="nav-links">
+            <a href="index.html#features">Features</a>
+            <a href="index.html#pricing">Pricing</a>
+            <a href="index.html#leads" class="cta-button sm primary">Get Started</a>
+        </div>
+    </nav>
+
+    <main class="thankyou-page">
+        <!-- Confetti pieces -->
+        <div class="confetti">
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+        </div>
+
+        <div class="thankyou-content">
+            <!-- Animated Success Icon -->
+            <div class="success-icon">
+                <svg class="circle-bg" viewBox="0 0 100 100">
+                    <circle class="ring-bg" cx="50" cy="50" r="45" />
+                    <circle class="ring" cx="50" cy="50" r="45" />
+                </svg>
+                <i data-lucide="check" class="checkmark-icon" style="width:40px;height:40px;"></i>
+            </div>
+
+            <div class="success-badge">Demo Booked</div>
+
+            <h1>Your story starts <span class="text-gradient">now</span>.</h1>
+
+            <p>We got your request and we're pumped. A MyGymStory expert will reach out shortly to schedule your
+                personalized demo.</p>
+
+            <!-- Next Steps -->
+            <div class="next-steps">
+                <h3>What's Next</h3>
+                <div class="step-item active">
+                    <div class="step-marker">
+                        <i data-lucide="check-circle-2"></i>
+                    </div>
+                    <div class="step-text">
+                        <strong>Request Received</strong>
+                        <span>We've got your details — you're on the list.</span>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-marker">
+                        <i data-lucide="phone"></i>
+                    </div>
+                    <div class="step-text">
+                        <strong>We'll Call You</strong>
+                        <span>Expect a call shortly to schedule your personalized demo.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="thankyou-actions">
+                <a href="index.html" class="cta-button primary">
+                    <i data-lucide="home" style="width:18px;height:18px;margin-right:8px;"></i>
+                    Back to Home
+                </a>
+                <a href="index.html#features" class="btn-outline">
+                    <i data-lucide="zap" style="width:18px;height:18px;margin-right:8px;"></i>
+                    Explore Features
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div style="text-align:center; font-size:0.85rem;">
+                © 2026 MyGymStory. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 
 </html>

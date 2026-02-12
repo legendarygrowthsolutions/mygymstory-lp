@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Lost in the Gym | MyGymStory</title>
+    <meta name="description" content="Looks like this page skipped leg day. Let's get you back on track.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="gym.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .error-page {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .error-page {
+                padding-top: 6rem;
+                align-items: flex-start;
+            }
+        }
+
+        .error-page::before {
+            content: '404';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(15rem, 30vw, 30rem);
+            font-weight: 900;
+            color: rgba(0, 0, 0, 0.03);
+            pointer-events: none;
+            letter-spacing: -0.05em;
+            user-select: none;
+        }
+
+        .error-content {
+            text-align: center;
+            max-width: 560px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .error-icon {
+            width: 120px;
+            height: 120px;
+            background: var(--bg-offset);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            border: 2px solid #f3f4f6;
+            position: relative;
+            animation: bobble 3s ease-in-out infinite;
+        }
+
+        .error-icon svg {
+            width: 48px;
+            height: 48px;
+            color: var(--text-secondary);
+        }
+
+        /* Sweat drops */
+        .error-icon::after {
+            content: '💧';
+            position: absolute;
+            bottom: -6px;
+            right: 10px;
+            font-size: 1.25rem;
+            animation: drip 2s ease-in-out infinite;
+        }
+
+        @keyframes bobble {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            25% {
+                transform: translateY(-8px) rotate(-3deg);
+            }
+
+            75% {
+                transform: translateY(-4px) rotate(3deg);
+            }
+        }
+
+        @keyframes drip {
+
+            0%,
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translateY(6px);
+                opacity: 0.5;
+            }
+        }
+
+        .error-code {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: rgba(0, 230, 118, 0.08);
+            padding: 6px 16px;
+            border-radius: 100px;
+            border: 1px solid rgba(0, 230, 118, 0.2);
+        }
+
+        .error-content h1 {
+            font-size: 2.75rem;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+
+        .error-content p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin: 0 auto 2.5rem;
+            max-width: 420px;
+            line-height: 1.7;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .error-tips {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #f3f4f6;
+        }
+
+        .error-tips h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+        }
+
+        .tip-cards {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tip-card {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-offset);
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border: 1px solid #f3f4f6;
+            transition: all 0.2s;
+        }
+
+        .tip-card:hover {
+            border-color: #e5e7eb;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tip-card svg {
+            width: 18px;
+            height: 18px;
+            color: var(--accent-primary);
+            flex-shrink: 0;
+        }
+
+        /* Rep Counter Easter Egg */
+        .rep-counter {
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            opacity: 0.6;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            user-select: none;
+        }
+
+        .rep-counter:hover {
+            opacity: 1;
+        }
+
+        .rep-counter span {
+            font-weight: 700;
+            color: var(--accent-primary);
+        }
+
+        /* Floating dumbbell decorations */
+        .deco-float {
+            position: absolute;
+            opacity: 0.06;
+            pointer-events: none;
+            animation: floatAround 6s ease-in-out infinite;
+        }
+
+        .deco-float.d1 {
+            top: 15%;
+            left: 8%;
+            animation-delay: 0s;
+        }
+
+        .deco-float.d2 {
+            top: 25%;
+            right: 10%;
+            animation-delay: 1.5s;
+        }
+
+        .deco-float.d3 {
+            bottom: 20%;
+            left: 12%;
+            animation-delay: 3s;
+        }
+
+        @keyframes floatAround {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(15deg);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .error-content h1 {
+                font-size: 2rem;
+            }
+
+            .error-actions {
+                flex-direction: column;
+            }
+
+            .error-actions .cta-button,
+            .error-actions .btn-outline {
+                width: 100%;
+            }
+
+            .tip-cards {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <a href="index.html" class="logo">MyGymStory<span class="dot">.</span></a>
+        <div class="nav-links">
+            <a href="index.html#features">Features</a>
+            <a href="index.html#pricing">Pricing</a>
+            <a href="index.html#leads" class="cta-button sm primary">Get Started</a>
+        </div>
+    </nav>
+
+    <main class="error-page">
+        <!-- Decorative floating icons -->
+        <i data-lucide="dumbbell" class="deco-float d1" style="width:80px;height:80px;"></i>
+        <i data-lucide="dumbbell" class="deco-float d2" style="width:60px;height:60px;"></i>
+        <i data-lucide="dumbbell" class="deco-float d3" style="width:50px;height:50px;"></i>
+
+        <div class="error-content fade-in visible">
+            <div class="error-icon">
+                <i data-lucide="dumbbell"></i>
+            </div>
+
+            <div class="error-code">Error 404</div>
+
+            <h1>This page skipped <span class="text-gradient">leg day</span>.</h1>
+
+            <p>Looks like this URL couldn't keep up with the workout. It's either been moved, deleted, or never existed
+                — kind of like your rest days.</p>
+
+            <div class="error-actions">
+                <a href="index.html" class="cta-button primary">
+                    <i data-lucide="home" style="width:18px;height:18px;margin-right:8px;"></i>
+                    Back to Home
+                </a>
+                <a href="index.html#leads" class="btn-outline">
+                    <i data-lucide="calendar" style="width:18px;height:18px;margin-right:8px;"></i>
+                    Book a Demo
+                </a>
+            </div>
+
+            <div class="error-tips">
+                <h3>While you're here</h3>
+                <div class="tip-cards">
+                    <a href="index.html#features" class="tip-card">
+                        <i data-lucide="zap"></i>
+                        Explore features
+                    </a>
+                    <a href="index.html#pricing" class="tip-card">
+                        <i data-lucide="tag"></i>
+                        Check pricing
+                    </a>
+                    <a href="index.html#testimonials" class="tip-card">
+                        <i data-lucide="heart"></i>
+                        Read reviews
+                    </a>
+                </div>
+            </div>
+
+            <div class="rep-counter" id="repCounter" onclick="countRep()">
+                Click to do <span id="repCount">0</span> reps while you wait 💪
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div style="text-align:center; font-size:0.85rem;">
+                © 2026 MyGymStory. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        let reps = 0;
+        function countRep() {
+            reps++;
+            document.getElementById('repCount').textContent = reps;
+            const icon = document.querySelector('.error-icon');
+            icon.style.transform = 'scale(0.9)';
+            setTimeout(() => icon.style.transform = '', 150);
+
+            if (reps === 10) {
+                document.querySelector('.rep-counter').innerHTML =
+                    '10 reps done! 🔥 Now that\'s commitment. <a href="index.html#leads" style="color:var(--accent-primary);font-weight:700;">Channel that energy →</a>';
+            }
+        }
+    </script>
+</body>
+
+</html>

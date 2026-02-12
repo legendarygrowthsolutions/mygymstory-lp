@@ -18,14 +18,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const animatedElements = document.querySelectorAll('.fade-in');
     animatedElements.forEach(el => observer.observe(el));
 
-    // 2. Form Handling
-    // Form submission is now handled by Formspree directly via HTML attributes.
-    // const form = document.getElementById('leadForm');
-    // if (form) {
-    //     form.addEventListener('submit', (e) => {
-    //         // Native submission to Formspree
-    //     });
-    // }
+    // 2. Form Handling with Loading State
+    const form = document.getElementById('leadForm');
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+
+            // Set loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `
+                <svg class="btn-spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="animation: spin 0.8s linear infinite; margin-right: 8px;">
+                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" opacity="0.3"/>
+                    <path d="M12 2v4"/>
+                </svg>
+                Booking...
+            `;
+
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    window.location.href = 'thankyou.html';
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                // Reset button on error
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+                alert('Something went wrong. Please try again or contact us directly.');
+            }
+        });
+    }
 
     // 3. Smooth Scrolling for Anchor Links (Optional polish)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

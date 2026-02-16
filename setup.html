@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Profile | MyGymStory</title>
+    <meta name="description"
+        content="Finalize your MyGymStory account setup. Set your password and complete your profile to start training.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="gym.css">
+    <style>
+        :root {
+            --accent-primary: #00E676;
+            --accent-hover: #00C853;
+            --bg-dark: #09090b;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .setup-container {
+            width: 100%;
+            max-width: 480px;
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .setup-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .setup-container h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            color: #fff !important;
+        }
+
+        .setup-container p {
+            color: #94a3b8 !important;
+            font-size: 0.95rem;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .setup-form .input-group {
+            margin-bottom: 20px;
+        }
+
+        .setup-form label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .setup-form input,
+        .setup-form select {
+            width: 100%;
+            background: #1a1a1a !important;
+            border: 1px solid #333 !important;
+            border-radius: 12px;
+            padding: 14px 16px;
+            color: #fff !important;
+            font-size: 1rem;
+            transition: all 0.2s;
+            font-family: inherit;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .setup-form select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 16px;
+            padding-right: 48px;
+        }
+
+        .setup-form input:focus,
+        .setup-form select:focus {
+            outline: none !important;
+            border-color: var(--accent-primary) !important;
+            box-shadow: 0 0 0 4px rgba(0, 230, 118, 0.1), 0 0 0 1px var(--accent-primary) !important;
+            background: #222 !important;
+        }
+
+        /* Prevent Chrome Autofill from turning inputs white */
+        .setup-form input:-webkit-autofill,
+        .setup-form input:-webkit-autofill:hover,
+        .setup-form input:-webkit-autofill:focus {
+            -webkit-text-fill-color: #fff !important;
+            -webkit-box-shadow: 0 0 0px 1000px #1a1a1a inset !important;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+
+        .setup-form select option {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .setup-btn {
+            width: 100%;
+            background: var(--accent-primary);
+            color: #000;
+            font-weight: 700;
+            padding: 16px;
+            border-radius: 12px;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .setup-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(0, 230, 118, 0.3);
+        }
+
+        .setup-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        #success-block {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .success-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(0, 230, 118, 0.1);
+            border: 2px solid var(--accent-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: var(--accent-primary);
+        }
+
+        .app-block {
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid #333;
+        }
+
+        .app-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #fff;
+            color: #000;
+            font-weight: 700;
+            padding: 16px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            width: 100%;
+            transition: all 0.2s;
+        }
+
+        .app-btn:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0, 0, 0, .1);
+            border-radius: 50%;
+            border-top-color: #000;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .error-message {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            display: none;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        #initial-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-dark);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="initial-loader">
+        <div
+            style="width: 40px; height: 40px; border: 4px solid rgba(0,230,118,.1); border-top-color: var(--accent-primary); border-radius: 50%; animation: spin 1s linear infinite;">
+        </div>
+    </div>
+
+    <div class="setup-container">
+        <div id="setup-form-content">
+            <div class="setup-header">
+                <h1>Secure Your Account</h1>
+                <p>Welcome! Please set your password and finalize your profile to start training.</p>
+                <p id="user-email" style="color: var(--accent-primary); margin-top: 8px; font-weight: 600;"></p>
+            </div>
+
+            <div id="error-box" class="error-message"></div>
+
+            <form class="setup-form" id="setupForm" style="display: none;">
+                <div class="input-group">
+                    <label for="password">Create Password</label>
+                    <input type="password" id="password" placeholder="••••••••" required minlength="6">
+                </div>
+
+                <div class="input-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="••••••••" required minlength="6">
+                </div>
+
+                <div style="display: flex; gap: 16px; margin-bottom: 20px;">
+                    <div class="input-group" style="flex: 1;">
+                        <label for="weight">Weight (kg)</label>
+                        <input type="number" id="weight" placeholder="75" step="0.1">
+                    </div>
+                    <div class="input-group" style="flex: 1;">
+                        <label for="height">Height (cm)</label>
+                        <input type="number" id="height" placeholder="180">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="fitnessGoal">Fitness Goal</label>
+                    <select id="fitnessGoal">
+                        <option value="">Select a goal</option>
+                        <option value="muscle_building">Muscle Building</option>
+                        <option value="weight_loss">Weight Loss</option>
+                        <option value="general_fitness">General Fitness</option>
+                        <option value="strength">Strength Training</option>
+                        <option value="endurance">Endurance</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="dietPreference">Diet Preference</label>
+                    <select id="dietPreference">
+                        <option value="">Select preference</option>
+                        <option value="non_vegetarian">Non-Vegetarian</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="eggitarian">Eggitarian</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="none">No Specific Preference</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="setup-btn" id="submitBtn">Finalize Setup</button>
+            </form>
+        </div>
+
+        <div id="success-block">
+            <div class="success-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+            <h1>Account Ready!</h1>
+            <p>Your profile is complete and your password has been set. You can now start using the app.</p>
+
+            <div class="app-block">
+                <a href="mygymstory://" class="app-btn">
+                    <span>Open in MyGymStory App</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="setup.js"></script>
+</body>
+
+</html>
